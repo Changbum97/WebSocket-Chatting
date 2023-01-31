@@ -1,2 +1,17 @@
-package com.example.websocketchatting.domain.dto;public class ChatMessage {
+package com.example.websocketchatting.domain.dto;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class ChatMessage {
+    public enum MessageType{
+        ENTER, TALK
+    }
+
+    private MessageType type;
+    private String roomId;
+    private String sender;
+    private String message;
 }
