@@ -19,7 +19,7 @@ public class ChatController {
     }
 
     @GetMapping
-    public List<ChatRoom> findAllRoom() {
-        return chatService.findAllRoom();
+    public String findAllRoom() {
+        return chatService.findAllRoom().toString();
     }
 }

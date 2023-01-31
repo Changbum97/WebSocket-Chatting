@@ -3,15 +3,18 @@ package com.example.websocketchatting.domain.dto;
 import com.example.websocketchatting.service.ChatService;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.ToString;
 import org.springframework.web.socket.WebSocketSession;
 
 import java.util.HashSet;
 import java.util.Set;
 
 @Getter
+@ToString
 public class ChatRoom {
     private String roomId;
     private String name;
+
     private Set<WebSocketSession> sessions = new HashSet<>();
 
     @Builder
