@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.security.Principal;
+
 @Slf4j
 @Controller
 @RequiredArgsConstructor
@@ -37,8 +39,9 @@ public class ChatController {
 
     // 채팅방 조회
     @GetMapping("/room")
-    public String getRoom(String roomId, Model model) {
+    public String getRoom(String roomId, Model model, Principal principal) {
         log.info("Get Chat Room, roomId : {}", roomId);
+        model.addAttribute("userName", principal.getName());
         model.addAttribute("room", chatRoomRepository.findRoomById(roomId));
         return "chat-room";
     }

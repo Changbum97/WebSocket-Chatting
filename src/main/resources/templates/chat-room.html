@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org" >
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Chatting</title>
@@ -20,6 +20,7 @@
 <div class="container">
     <div class="col-6">
         <h1>[[${room.name}]]</h1>
+        <h3>[[${userName}]]</h3>
     </div>
     <div id="msgArea" class="col"></div>
     <div class="col-6">
@@ -43,7 +44,7 @@
     $(document).ready(function () {
         let roomName = [[${room.name}]];
         let roomId = [[${room.roomId}]];
-        let userName = "user1";
+        let userName = [[${userName}]];;
 
         console.log(roomName + ", " + roomId + ", " + userName);
 
@@ -59,7 +60,7 @@
                 let writer = content.writer;
                 let str = '';
 
-                if(writer === userName){
+                if(writer != userName){
                     str = "<div class='col-6'>";
                     str += "<div class='alert alert-secondary'>";
                     str += "<b>" + writer + " : " + message + "</b>";
