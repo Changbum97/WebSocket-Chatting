@@ -1,6 +1,6 @@
 package com.example.websocketchatting.controller;
 
-import com.example.websocketchatting.domain.dto.ChatMessage;
+import com.example.websocketchatting.domain.entity.ChatMessage;
 import lombok.RequiredArgsConstructor;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.simp.SimpMessagingTemplate;

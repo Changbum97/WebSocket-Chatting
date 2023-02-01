@@ -1,4 +1,4 @@
-package com.example.websocketchatting.config;
+package com.example.websocketchatting.config.user;
 
 import com.example.websocketchatting.domain.entity.User;
 import com.example.websocketchatting.repository.UserRepository;

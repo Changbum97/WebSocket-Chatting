@@ -1,4 +1,4 @@
-package com.example.websocketchatting.domain.dto;
+package com.example.websocketchatting.domain.entity;
 
 import lombok.Getter;
 import lombok.Setter;

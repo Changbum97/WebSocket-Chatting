@@ -1,6 +1,6 @@
 package com.example.websocketchatting.repository;
 
-import com.example.websocketchatting.domain.dto.ChatRoom;
+import com.example.websocketchatting.domain.entity.ChatRoom;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
