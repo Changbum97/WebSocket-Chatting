@@ -15,16 +15,21 @@ public class SecurityConfig {
         return httpSecurity
                 .httpBasic().and()
                 .csrf().disable()
-                .cors().and()
+                .cors()
+                .and()
+                .headers().frameOptions().sameOrigin()// SockJS는 기본적으로 HTML iframe 요소를 통한 전송을 허용하지 않도록 설정되는데 해당 내용을 해제한다.
+                .and()
                 .authorizeRequests()
-                .antMatchers("/users/join").permitAll()
-                .antMatchers("/login").permitAll()
-                .anyRequest().authenticated()
+                //.antMatchers("/chat/**").authenticated()
+                .anyRequest().permitAll()
                 .and()
                 .formLogin()
                 .usernameParameter("userName")
                 .passwordParameter("password")
                 .defaultSuccessUrl("/chat/rooms")
-                .and().build();
+                .and()
+                .logout().logoutUrl("/logout")
+                .and()
+                .build();
     }
 }
